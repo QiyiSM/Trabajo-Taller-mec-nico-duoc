@@ -1,0 +1,52 @@
+{%extends 'app/base.html' %}
+
+{%load static%}
+
+{%block contenido %}
+
+
+<div class="container">
+  <div class="row">
+      <div class="col-12 align-self-center"><h1 class="display text-white">Servicios</h1></div>
+  </div>
+  <div class="row">
+      <div class="col-8">
+          <div class="row" style="padding: 10px 0 ;">
+              <div class="col-12 text-white">
+                  Lista de servicios:
+                  <div class="row">
+                      
+                      
+                      {% load humanize %}
+                      <br>
+                      {% for p in productos %}
+                      <div class="col-6 pt-4">
+                          <div class="card text-center bg-dark text-white d-flex align-items-center">
+                             <div class="card-body">
+                                {% if p.foto %}
+                                <img src="{{ p.foto.url }}" style="height: 100px; width: 100px" alt="...">
+                                {% endif %}
+                                <p class="card-title">Trabajo disponible por: {{ p.nom_trabajador }}</p>
+                                <p class="card-text">
+                                  Especialista en {{ p.trabajos }}<br>
+                                  Valor de: {{ p.trabajos.precio|intcomma }}
+                                </p>
+                                <a href="{% url 'Add' p.id %}" class="btn btn-primary">Agregar al Carrito</a>
+                             </div> 
+                          </div>
+                      </div>
+                      {% endfor %}
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-4">
+          {% include "app/carrito2.html" %}
+      </div>
+  </div>
+</div>
+{% load humanize %}
+
+
+
+{%endblock %}

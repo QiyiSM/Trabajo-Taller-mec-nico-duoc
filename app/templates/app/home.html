@@ -1,0 +1,88 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<span name="ini" id="ini"></span>
+
+<div class="container mt-5 pt-3 mb-3">
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="{% url 'galeria' %}">
+          <img src="{% static 'app/img/carru/c1.jpg' %}" class="d-block w-100" alt="...">
+        </a>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Alineamiento de Neumaticos</h5>
+          <a class="btn btn-primary" href="{% url 'galeria2' %}">Mas informacion</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <a href="proye2.html">
+          <img src="{% static 'app/img/carru/c2.jpg' %}" class="d-block w-100" alt="...">
+        </a>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Cambio de aceite</h5>
+          <a class="btn btn-primary" href="{% url 'galeria2' %}">Mas informacion</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <a href="{% url 'galeria' %}">
+          <img src="{% static 'app/img/carru/c3.jpg' %}" class="d-block w-100" alt="...">
+        </a>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Cambio de bujias</h5>
+          <a class="btn btn-primary" href="{% url 'galeria2' %}">Mas informacion</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<span name="awe" id="awe"></span>
+<div class="container mt-5 pt-5 card-section">
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-6 mt-3">
+      <div class="card text-center bg-dark">
+        <div class="card-img-container">
+          <img src="{% static 'app/img/otros servicios/auto.jpg' %}" class="card-img" alt="...">
+        </div>
+        <div class="card-body text-white">
+          <h5 class="card-title">Quieres vender tu auto?</h5>
+          <p class="card-text">Trae tu vehículo y nosotros lo evaluaremos y nos encargaremos de dejarlo a punto para su venta que puede ser realizada con nuestra página afiliada.</p>
+          <a href="#" class="btn btn-primary">Ir al sitio</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-6 mt-3">
+      <div class="card text-center bg-dark">
+        <div class="card-img-container">
+          <img src="{% static 'app/img/otros servicios/auto1.jpg' %}" class="card-img" alt="...">
+        </div>
+        <div class="card-body text-white">
+          <h5 class="card-title">La suciedad no es lo de menos</h5>
+          <p class="card-text">Así como queremos mantener tu auto en perfecto estado, también queremos cuidar su apariencia. Por eso, contamos con un servicio de lavado de autos.</p>
+          <a href="#" class="btn btn-primary">Ir al sitio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

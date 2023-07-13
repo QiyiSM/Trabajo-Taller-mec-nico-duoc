@@ -1,0 +1,67 @@
+{% extends 'app/base.html' %}
+
+{% block contenido %}
+{% load humanize %}
+
+<script>
+    function eliminarProducto(id){
+        Swal.fire({
+            "title":"¿Estas Seguro? ",
+            "text":"esta accion no se puede deshacer",
+            "icon":"question",
+            "showCancelButton":true,
+            "cancelButtonText":"Cancelar",
+            "confirmButtonText":"Si, Eliminar",
+            "reverseButtons":true,
+            "confirmButtonColor":"#dc3545"
+        })
+        .then(function(result){
+            if(result.isConfirmed) {
+                window.location.href = "/eliminar_producto/" + id + "/"
+            }
+        })
+    }
+</script>
+
+
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <h2> Lista de Trabajador con sus trabajos </h2>
+                <table class="table table-striped table-hover table-responsive-s">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Trabajos</th>
+                        <th>Tiempo</th>
+                        <th>Opciones</th>
+                    </tr>
+            
+                {% for p in entity %}
+                <tr>
+                    <td>{{p.nom_trabajador | title }}</td>
+                    <td>{{p.trabajos.precio|intcomma}}</td>
+                    <td>{{p.trabajos | title }}</td>
+                    <td>{{p.trabajos.tiempo | title }}</td>
+                    <td>
+                        <a href="{% url 'modificar_producto' p.id %}" class="btn btn-info btn-sm"> modificar </a>
+                        <a href="#" onclick="eliminarProducto({{ p.id }})" class="btn btn-info btn-danger"> eliminar </a>
+                    </td>
+                </tr>
+            
+                {% endfor %}
+                
+                </table>
+                <div>
+                    {% include 'app/paginator.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="container">
+    <div class="col-12 col-md-6 col-lg-4 mt-3">
+        <div class="card text-white bg-dark d-flex align-items-center">
+            <h1>Perfil de Usuario</h1>
+            <ul>
+            <li>Nombre: {{ user.first_name }} {{ user.last_name }}</li>
+            <li>Correo electrónico: {{ user.email }}</li>
+            <li>Nombre de usuario: {{ user.username }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
